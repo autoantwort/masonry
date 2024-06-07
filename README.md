@@ -45,7 +45,8 @@ $('.grid').masonry({
 });
 ```
 
-With vanilla JavaScript
+With vanilla JavaScript.
+Note: If your layout contains **images**, you have to layout after images have loaded.
 
 ``` js
 // vanilla JS
@@ -61,6 +62,11 @@ var msnry = new Masonry( grid, {
 var msnry = new Masonry( '.grid', {
   // options...
 });
+
+// re-layout after images have loaded
+for (let e of grid.getElementsByTagName("img")) {
+    e.onload = () => msnry.layout();
+}
 ```
 
 With HTML
